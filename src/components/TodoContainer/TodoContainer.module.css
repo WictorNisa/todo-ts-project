@@ -1,5 +1,12 @@
 .todoContainer{
-    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.745);
+    border-radius: 15px;
     width: 30%;
     height: 80vh;
+    z-index: 100;
+}
+
+.todoContainer header{
+    display: flex;
+    justify-content: space-between;
 }

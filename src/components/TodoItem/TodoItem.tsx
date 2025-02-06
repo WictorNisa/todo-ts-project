@@ -7,6 +7,7 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ task, removeTask }) => {
+
   return (
     <div className={styles.cardContainer}>
       <p>{`Completed? ${task.completed}`}</p>
