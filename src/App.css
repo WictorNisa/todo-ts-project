@@ -7,3 +7,14 @@
   width: 100vw;
   background-color: antiquewhite;
 }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}

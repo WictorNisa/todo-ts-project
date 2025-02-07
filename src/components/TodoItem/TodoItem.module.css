@@ -1,7 +1,11 @@
-.cardContainer{
-    background-color: azure;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+.cardContainer {
+  background-color: azure;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardContainer div {
+  width: 10%;
 }

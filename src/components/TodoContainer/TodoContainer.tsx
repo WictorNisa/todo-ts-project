@@ -3,6 +3,7 @@ import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
 import styles from "./TodoContainer.module.css";
 import { v4 as uuidv4 } from "uuid";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export interface Task {
   id: string;
@@ -54,14 +55,35 @@ const TodoContainer = () => {
     setItem("tasks", updatedTasks);
   };
 
+  //Function to check completed on a task
+  const checkCompletedTask = (id: string) => {
+    // Map through the taskList and update the `completed` status for the matched task
+    const updatedTaskList = taskList.map((task) => {
+      if (task.id === id) {
+        //Return a new object with the updated 'completed' value (toggle it)
+        return { ...task, completed: !task.completed };
+      }
+      //Return the task unchanged if it does not match the id
+      return task;
+    });
+    setTaskList(updatedTaskList);
+    setItem("tasks", updatedTaskList);
+  };
+
   return (
     <section className={styles.todoContainer}>
       <header>
         <h1>Todo app</h1>
-        <button>Settings</button>
+        <div className={styles.themeSwitchContainer}>
+          <ThemeToggle />
+        </div>
       </header>
       <TodoForm addTask={addTask} setTask={setTask} task={task} />
-      <TodoList taskList={taskList} removeTask={removeTask} />
+      <TodoList
+        taskList={taskList}
+        removeTask={removeTask}
+        checkCompletedTask={checkCompletedTask}
+      />
     </section>
   );
 };

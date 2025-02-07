@@ -6,12 +6,17 @@ import { Task } from "../TodoContainer/TodoContainer";
 interface TodoListProps {
   taskList: Task[];
   removeTask: (id: string) => void;
+  checkCompletedTask: (id: string) => void;
 }
-const TodoList: React.FC<TodoListProps> = ({ taskList, removeTask }) => {
+const TodoList: React.FC<TodoListProps> = ({
+  taskList,
+  removeTask,
+  checkCompletedTask,
+}) => {
   return (
     <div className={styles.todoDisplayContainer}>
       {taskList.map((task) => (
-        <TodoItem key={task.id} removeTask={removeTask} task={task} />
+        <TodoItem key={task.id} removeTask={removeTask} task={task} checkCompletedTask={checkCompletedTask}/>
       ))}
     </div>
   );
